@@ -13,7 +13,7 @@ import io.cucumber.java.en.Given;
 public class browser {
 	static WebDriver driver;
 	@Test
-	static public void verify_the_browser_launching() {
+	 public void test() {
 		driver =  new ChromeDriver();
 		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
 		driver.manage().window().maximize();
