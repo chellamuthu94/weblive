@@ -51,7 +51,10 @@ jobs:
         to: chellamuthu@4blabs.com
         # from email name
         from: odcchella@gmail.com
-
+        secure: true
+        ignore_cert: true
+        convert_markdown: true
+        priority: low
         path: Default suite/
         attachments: /hrm/test-output/Default suite/Default test.html
     - name: Deploy to GitHub Pages
