@@ -47,7 +47,7 @@ jobs:
         # email body as text
         body: ${{ github.job }} job in workflow ${{ github.workflow }} of ${{ github.repository }} 
          is ${{ job.status }}.
-        ATTACHMENT_PATH: /hrm/target/surefire-reports/emailable-report.html/test_report.pdf
+        attachments: attachments.zip,git.diff,./dist/static/*.js
          
         # comma-separated string, send email to
         to: chellamuthu@4blabs.com
