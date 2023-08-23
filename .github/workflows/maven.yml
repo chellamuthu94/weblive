@@ -31,8 +31,9 @@ jobs:
     - name: Build with Maven
       run: mvn clean test
   
-    - name: Send mail
+    
       if: always()
+    - name: Send mail
       uses: dawidd6/action-send-mail@v3
       with:
         # mail server settings
@@ -47,8 +48,14 @@ jobs:
         # email body as text
         body: ${{ github.job }} job in workflow ${{ github.workflow }} of ${{ github.repository }} 
          is ${{ job.status }}.
-        attachments: /hrm/test-output/Default suite/Default test.html
          
+        path: Default suite/
+        attachments: /hrm/test-output/Default suite/Default test.html
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@v4.4.1
+      with: 
+        branch: gh-pages
+        folder: ./Default suite
         # comma-separated string, send email to
         to: chellamuthu@4blabs.com
         # from email name
