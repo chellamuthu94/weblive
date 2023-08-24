@@ -56,6 +56,6 @@ jobs:
         ignore_cert: true
         convert_markdown: true
         priority: low
-        attachments: target/surefire-reports/testng-results.html
+        attachments: target/surefire-reports/testng-results.xml
    
         
