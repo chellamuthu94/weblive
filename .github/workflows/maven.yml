@@ -28,9 +28,10 @@ jobs:
         cache: maven
     - uses: browser-actions/setup-chrome@v1
     - run: chrome --version
-    - name: Build with Maven
-      run: mvn clean test
-  
+    # - name: Build with Maven
+    #   run: mvn clean test
+    - name: Generate TestNG report       
+      run: mvn surefire-report:report
     
       if: always()
     - name: Send mail
@@ -55,12 +56,6 @@ jobs:
         ignore_cert: true
         convert_markdown: true
         priority: low
-        path: Default suite/
-        attachments: /hrm/test-output/Default suite/Default test.html
-    - name: Deploy to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@v4.4.1
-      with: 
-        branch: gh-pages
-        folder: ./Default suite
-        # comma-separated string, send email to
+        attachments: target/surefire-reports/testng-results.xml
+   
         
