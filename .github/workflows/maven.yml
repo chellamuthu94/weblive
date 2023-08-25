@@ -29,9 +29,10 @@ jobs:
     - uses: browser-actions/setup-chrome@v1
     - run: chrome --version
     - name: Install dependencies
-      run: npm install
+      run: npm install allure-commandline -g
+
     - name: Run tests
-      run: npm test
+      run: npm install send-mail-action -g
     - name: Generate Allure report
       run: allure generate --clean
     # - name: Build with Maven
