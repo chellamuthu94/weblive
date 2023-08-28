@@ -28,17 +28,17 @@ jobs:
         cache: maven
     - uses: browser-actions/setup-chrome@v1
     - run: chrome --version
-    - name: Install dependencies
-      run: npm install allure-commandline -g
+    # - name: Install dependencies
+    #   run: npm install allure-commandline -g
 
-    - name: Run tests
-      run: npm install send-mail-action -g
-    - name: Generate Allure report
-      run: allure generate --clean
-    # - name: Build with Maven
-    #   run: mvn clean test
-    # - name: Generate TestNG report       
-    #   run: mvn surefire-report:report
+    # - name: Run tests
+    #   run: npm install send-mail-action -g
+    # - name: Generate Allure report
+    #   run: allure generate --clean
+    #  - name: Build with Maven
+    #    run: mvn clean test
+    - name: Generate TestNG report       
+      run: mvn surefire-report:report
 
       if: always()
     - name: Send mail
@@ -63,5 +63,5 @@ jobs:
         ignore_cert: true
         convert_markdown: true
         priority: low
-        # attachments: target/surefire-reports/emailable-report.html
-        attachments: allure-report/index.html
+        attachments: target/surefire-reports/emailable-report.html
+        # attachments: allure-report/index.html
